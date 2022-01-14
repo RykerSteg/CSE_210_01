@@ -2,7 +2,7 @@
 "By Ryker Steglich"
 
 def main():
-  board = newBoard()
+  board = threeBythree()
   displayBoard(board)
   game = "play"
   turns(game, board)
@@ -24,7 +24,7 @@ def turns (game, board):
       break
   print("Good game. Thanks for playing!")
   
-def newBoard():
+def threeBythree():
   board = [1,2,3,4,5,6,7,8,9]
   return board
 
