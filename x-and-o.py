@@ -5,7 +5,10 @@ def main():
   board = newBoard()
   displayBoard(board)
   game = "play"
-  
+  turns(game, board)
+
+
+def turns (game, board):
   while game != "win" or game != "tie":
     xturn = input("x's turn to choose a square (1-9):")
     playerOne(xturn, board)
@@ -20,9 +23,6 @@ def main():
     if game == "win" or game == "tie":
       break
   print("Good game. Thanks for playing!")
-
-
-
   
 def newBoard():
   board = [1,2,3,4,5,6,7,8,9]
