@@ -10,14 +10,12 @@ def main():
 
 def turns (game, board):
   while game != "win" or game != "tie":
-    xturn = input("x's turn to choose a square (1-9):")
-    playerOne(xturn, board)
+    playerOne(board)
     displayBoard(board)
     game = winner(board)
     if game == "win" or game == "tie":
       break
-    oturn = input("o's turnt to choose a sqaure (1-9):")
-    playerTwo(oturn, board)
+    playerTwo(board)
     displayBoard(board)
     game = winner(board)
     if game == "win" or game == "tie":
@@ -37,14 +35,24 @@ def displayBoard(board):
   print(f"{row}")
   print(f"{board[6]}|{board[7]}|{board[8]}")
 
-def playerOne(turn, board):
+def playerOne(board):
+  turn = input("x's turn to choose a square (1-9):")
   spot = int(turn) - 1
-  board[spot] = "X"
-  return board
+  while board[spot] == "X" or board[spot] == "O":
+    turn = input("This spot has already been filled. Please select another.")
+    spot = int(turn) -1
+  else:
+    board[spot] = ("X")
+    return board
   
-def playerTwo(turn, board):
+def playerTwo(board):
+  turn = input("o's turnt to choose a sqaure (1-9):")
   spot = int(turn) - 1
-  board[spot] = "O"
+  while board[spot] == "X" or board[spot] == "O":
+    turn = input("This spot has already been filled. Please select another.")
+    spot = int(turn)-1
+  else: 
+    board[spot] = "O"
   return board
 
 def winner(board):
